@@ -13,12 +13,11 @@ class CreateTypeProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('TypeProject', function (Blueprint $table) {
+        Schema::create('project_types', function (Blueprint $table) {
             $table->id();
             $table->string("description");
-            $table->boolean();
-            $slag->string("slog");
-            $home->integer();
+            $table->string("slug");
+            $table->boolean("home");
             $table->timestamps();
             $table->softDeletes();
         });

@@ -17,6 +17,7 @@ class CreateAwardsTable extends Migration
                 $table->id();
                 $table->string('name');
                 $table->string('description');
+                $table->string('description_US');
                 $table->string('image');
                 $table->timestamps();
                 $table->softDeletes();
