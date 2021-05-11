@@ -26,7 +26,7 @@ class CreateSocialNetworksTable extends Migration
             ->references("id")
                 ->on("social_network_type_id");
             $table->timestamps();
-            $table->softDeletes() 
+            $table->softDeletes();
         });
     }
 
