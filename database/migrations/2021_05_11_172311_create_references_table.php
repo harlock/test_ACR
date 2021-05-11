@@ -15,7 +15,7 @@ class CreateReferencesTable extends Migration
     {
         Schema::create('references', function (Blueprint $table) {
             $table->id();
-            $table->string("referece");
+            $table->string("description");
             $table->bigInteger("project_id")->unsigned();
             $table->foreign("project_id")
                 ->references("id")

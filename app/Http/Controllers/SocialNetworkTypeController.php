@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TypeSocialNetwork;
+use App\Models\SocialNetworkType;
 use Illuminate\Http\Request;
 
-class TypeSocialNetworkController extends Controller
+class SocialNetworkTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class TypeSocialNetworkController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TypeSocialNetwork  $typeSocialNetwork
+     * @param  \App\Models\SocialNetworkType  $typeSocialNetwork
      * @return \Illuminate\Http\Response
      */
-    public function show(TypeSocialNetwork $typeSocialNetwork)
+    public function show(SocialNetworkType $typeSocialNetwork)
     {
         //
     }
@@ -52,10 +52,10 @@ class TypeSocialNetworkController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TypeSocialNetwork  $typeSocialNetwork
+     * @param  \App\Models\SocialNetworkType  $typeSocialNetwork
      * @return \Illuminate\Http\Response
      */
-    public function edit(TypeSocialNetwork $typeSocialNetwork)
+    public function edit(SocialNetworkType $typeSocialNetwork)
     {
         //
     }
@@ -64,10 +64,10 @@ class TypeSocialNetworkController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TypeSocialNetwork  $typeSocialNetwork
+     * @param  \App\Models\SocialNetworkType  $typeSocialNetwork
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeSocialNetwork $typeSocialNetwork)
+    public function update(Request $request, SocialNetworkType $typeSocialNetwork)
     {
         //
     }
@@ -75,10 +75,10 @@ class TypeSocialNetworkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TypeSocialNetwork  $typeSocialNetwork
+     * @param  \App\Models\SocialNetworkType  $typeSocialNetwork
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeSocialNetwork $typeSocialNetwork)
+    public function destroy(SocialNetworkType $typeSocialNetwork)
     {
         //
     }

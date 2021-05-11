@@ -13,7 +13,7 @@ class CreateTypeSocialNetworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_social_networks', function (Blueprint $table) {
+        Schema::create('social_network_types', function (Blueprint $table) {
             $table->id();
             $table->string("description"); 
             $table->string("url"); 
