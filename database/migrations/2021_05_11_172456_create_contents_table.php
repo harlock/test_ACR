@@ -17,10 +17,10 @@ class CreateContentsTable extends Migration
             $table->id();
             $table->String("text");
             $table->int("position");
+            $table->bigInteger("project_id")->unsigned();
             $table->foreign("project_id")
             ->references("id")
                 ->on("project_id");
-            $table->Foreign("project_id");
             $table->timestamps();
             
         });
