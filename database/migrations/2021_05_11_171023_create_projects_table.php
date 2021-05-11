@@ -22,7 +22,7 @@ class CreateProjectsTable extends Migration
             $table->bigInteger("project_type_id")->unsigned();
             $table->foreign("project_type_id")
                 ->references("id")
-                ->on("type_projects");
+                ->on("project_types");
             $table->timestamps();
             $table->softDeletes();
         });
