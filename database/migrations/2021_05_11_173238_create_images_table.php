@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVideosTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateVideosTable extends Migration
      */
     public function up()
     {
-        Schema::create('videos', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string("video");
+            $table->string("image");
             $table->string("description");
-            $table->Integer("position");
+            $table->integer("position");
+            $table->bigInteger("project_id")->unsigned();
+            $table->foreign("project_id")
+                ->references("id")
+                ->on("projects");
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger("proyects_id")->unasigned();
-            $table->foreign("projects_id")
-                ->references("id")
-                ->on("proyect");
         });
     }
 
@@ -34,6 +34,6 @@ class CreateVideosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('videos');
+        Schema::dropIfExists('images');
     }
 }
