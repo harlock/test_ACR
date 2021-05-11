@@ -19,7 +19,7 @@ class CreateSocialNetworksTable extends Migration
             $table->bigInteger("ally_id")->unsigned();
             $table->foreign("ally_id")
                 ->references("id")
-                ->on("ally");
+                ->on("allies");
             $table->bigInteger("social_network_type_id")->unsigned();
             $table->foreign("social_network_type_id")
                 ->references("id")
