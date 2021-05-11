@@ -19,8 +19,8 @@ class CreateProjectsTable extends Migration
             $table->string("description");
             $table->integer("view_counter");
             $table->integer("enabled");
-            $table->bigInteger("type_project_id")->unsigned();
-            $table->foreign("type_project_id")
+            $table->bigInteger("project_type_id")->unsigned();
+            $table->foreign("project_type_id")
                 ->references("id")
                 ->on("type_projects");
             $table->timestamps();
