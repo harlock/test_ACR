@@ -20,9 +20,9 @@ class CreateVideosTable extends Migration
             $table->bigInteger("position");
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign("type_id")
+            $table->foreign("projects_id")
                 ->references("id")
-                ->on("pages");
+                ->on("proyect");
         });
     }
 
