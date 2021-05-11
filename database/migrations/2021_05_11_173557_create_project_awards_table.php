@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSocialNetworksTable extends Migration
+class CreateProjectAwardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,17 @@ class CreateSocialNetworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_networks', function (Blueprint $table) {
+        Schema::create('project_awards', function (Blueprint $table) {
             $table->id();
-            $table->string("address");
-            $table->bigInteger("ally_id")->unsigned();
-            $table->foreign("ally_id")
+            $table->date("date");
+            $table->bigInteger("project_id")->unsigned();
+            $table->foreign("project_id")
                 ->references("id")
-                ->on("allies");
-            $table->bigInteger("social_network_type_id")->unsigned();
-            $table->foreign("social_network_type_id")
+                ->on("projects");
+            $table->bigInteger("award_id")->unsigned();
+            $table->foreign("award_id")
                 ->references("id")
-                ->on("type_social_networks");
+                ->on("awards");
             $table->timestamps();
             $table->softDeletes();
         });
@@ -36,6 +36,6 @@ class CreateSocialNetworksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social_networks');
+        Schema::dropIfExists('project_awards');
     }
 }

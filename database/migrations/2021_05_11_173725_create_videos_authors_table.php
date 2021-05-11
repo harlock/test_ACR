@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSocialNetworksTable extends Migration
+class CreateVideosAuthorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateSocialNetworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('social_networks', function (Blueprint $table) {
+        Schema::create('videos_authors', function (Blueprint $table) {
             $table->id();
-            $table->string("address");
-            $table->bigInteger("ally_id")->unsigned();
-            $table->foreign("ally_id")
+            $table->bigInteger("video_id")->unsigned();
+            $table->foreign("video_id")
                 ->references("id")
-                ->on("allies");
-            $table->bigInteger("social_network_type_id")->unsigned();
-            $table->foreign("social_network_type_id")
+                ->on("videos");
+            $table->bigInteger("content_author_id")->unsigned();
+            $table->foreign("content_author_id")
                 ->references("id")
-                ->on("type_social_networks");
+                ->on("content_authors");
             $table->timestamps();
             $table->softDeletes();
         });
@@ -36,6 +35,6 @@ class CreateSocialNetworksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('social_networks');
+        Schema::dropIfExists('videos_authors');
     }
 }

@@ -22,6 +22,7 @@ class CreateContentsTable extends Migration
             ->references("id")
                 ->on("project_id");
             $table->timestamps();
+            $table->softDeletes();
             
         });
     }
