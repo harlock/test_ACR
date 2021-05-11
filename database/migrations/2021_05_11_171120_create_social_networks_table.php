@@ -15,16 +15,15 @@ class CreateSocialNetworksTable extends Migration
     {
         Schema::create('social_networks', function (Blueprint $table) {
             $table->id();
-          
             $table->string("address");
             $table->bigInteger("ally_id")->unsigned();
             $table->foreign("ally_id")
-            ->references("id")
+                ->references("id")
                 ->on("ally");
             $table->bigInteger("social_network_type_id")->unsigned();
             $table->foreign("social_network_type_id")
-            ->references("id")
-                ->on("social_network_type_id");
+                ->references("id")
+                ->on("type_social_networks");
             $table->timestamps();
             $table->softDeletes();
         });
