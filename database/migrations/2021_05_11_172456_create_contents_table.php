@@ -15,12 +15,12 @@ class CreateContentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->String("text");
-            $table->int("position");
+            $table->string("text");
+            $table->integer("position");
             $table->bigInteger("project_id")->unsigned();
             $table->foreign("project_id")
             ->references("id")
-                ->on("project_id");
+                ->on("projects");
             $table->timestamps();
             $table->softDeletes();
             

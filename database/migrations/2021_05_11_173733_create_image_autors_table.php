@@ -13,16 +13,16 @@ class CreateImageAutorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_autors', function (Blueprint $table) {
+        Schema::create('image_authors', function (Blueprint $table) {
             $table->id();
             $table->bigInteger("image_id")->unsigned();
             $table->foreign("image_id")
                 ->references("id")
-                ->on("image");
+                ->on("images");
             $table->bigInteger("content_author_id")->unsigned();
             $table->foreign("content_author_id")
                 ->references("id")
-                ->on("content_author");
+                ->on("content_authors");
                        
             $table->timestamps();
             $table->softDeletes();

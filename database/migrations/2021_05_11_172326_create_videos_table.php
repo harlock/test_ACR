@@ -17,10 +17,10 @@ class CreateVideosTable extends Migration
             $table->id();
             $table->string("video");
             $table->string("description");
-            $table->Integer("position");
+            $table->integer("position");
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger("project_id")->unasigned();
+            $table->bigInteger("project_id")->unsigned();
             $table->foreign("project_id")
                 ->references("id")
                 ->on("projects");

@@ -23,7 +23,7 @@ class CreateSocialNetworksTable extends Migration
             $table->bigInteger("social_network_type_id")->unsigned();
             $table->foreign("social_network_type_id")
                 ->references("id")
-                ->on("type_social_networks");
+                ->on("social_network_types");
             $table->timestamps();
             $table->softDeletes();
         });
