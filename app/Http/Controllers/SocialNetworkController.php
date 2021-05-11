@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TypeProject;
+use App\Models\SocialNetwork;
 use Illuminate\Http\Request;
 
-class TypeProjectController extends Controller
+class SocialNetworkController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class TypeProjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TypeProject  $typeProject
+     * @param  \App\Models\SocialNetwork  $socialNetwork
      * @return \Illuminate\Http\Response
      */
-    public function show(TypeProject $typeProject)
+    public function show(SocialNetwork $socialNetwork)
     {
         //
     }
@@ -52,10 +52,10 @@ class TypeProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TypeProject  $typeProject
+     * @param  \App\Models\SocialNetwork  $socialNetwork
      * @return \Illuminate\Http\Response
      */
-    public function edit(TypeProject $typeProject)
+    public function edit(SocialNetwork $socialNetwork)
     {
         //
     }
@@ -64,10 +64,10 @@ class TypeProjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TypeProject  $typeProject
+     * @param  \App\Models\SocialNetwork  $socialNetwork
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeProject $typeProject)
+    public function update(Request $request, SocialNetwork $socialNetwork)
     {
         //
     }
@@ -75,10 +75,10 @@ class TypeProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TypeProject  $typeProject
+     * @param  \App\Models\SocialNetwork  $socialNetwork
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TypeProject $typeProject)
+    public function destroy(SocialNetwork $socialNetwork)
     {
         //
     }
