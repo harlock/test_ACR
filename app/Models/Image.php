@@ -9,3 +9,4 @@ class Image extends Model
 {
     use HasFactory;
 }
+
