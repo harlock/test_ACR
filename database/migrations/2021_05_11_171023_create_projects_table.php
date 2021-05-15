@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string("title");
             $table->string("description");
             $table->integer("view_counter");
-            $table->integer('slug');
+            $table->string('slug');
             $table->integer("enabled");
             $table->bigInteger("project_type_id")->unsigned();
             $table->foreign("project_type_id")
