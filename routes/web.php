@@ -27,3 +27,5 @@ Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
 Route::get('socialNetworks', \App\Http\Livewire\SocialNetworks::class)->name('socialNetworks');
 
 Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypes::class)->name('SocialNetworkType');
+
+Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
