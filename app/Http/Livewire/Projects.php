@@ -12,6 +12,7 @@ class Projects extends Component
 {
     public $project, $title, $description, $slug = "hola", $project_id, $project_type, $categories;
     public $isOpen = 0;
+    public $selectOpen = 0;
 
     public function render()
     {
@@ -31,6 +32,7 @@ class Projects extends Component
     public function create(){
         $this->resetInputFields();
         $this->openModal();
+        $this->selectOpen=true;
     }
 
     public  function openModal(){
@@ -55,23 +57,23 @@ class Projects extends Component
            'description'=>'required'
         ]);
 
-        try {
+        /*try {
             DB::select("call insertProject(?,?,?,?)", array(
                 $this->title,
                 $this->description,
                 $this->slug,
                 $this->project_type));
         }catch (\Exception $e){
-        }
+        }*/
 
-        /*Project::updateOrCreate(['id'=>$this->project_id],[
+        Project::updateOrCreate(['id'=>$this->project_id],[
             'title'=>$this->title,
             'description'=>$this->description,
             'view_counter'=>$this->view_counter,
             'slug'=>$this->slug,
             'enabled'=>$this->enabled,
             'project_type_id'=>$this->project_type_id
-        ]);*/
+        ]);
 
         session()->flash('message',
         $this->project_id ? 'Proyecto actualizado exitosamente.': 'Proyecto generado con éxito.');
@@ -85,6 +87,7 @@ class Projects extends Component
         $this->title = $project->title;
         $this->description = $project->description;
         $this->openModal();
+        $this->selectOpen=false;
     }
 
     public function delete($id){

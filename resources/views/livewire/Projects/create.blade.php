@@ -19,16 +19,18 @@
                             <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" wire:model="description" placeholder="Ingrese una breve descripción del proyecto"></textarea>
                             @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
-                        <div class="mb-4">
-                            <label for="project_type" class="block text-gray-700 text-sm font-bold mb-2">Tipo del proyecto:</label>
-                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_type" wire:model="project_type" required>
-                                    <option>Seleccione un tipo de proyecto</option>
-                                @foreach($categories as $categorie)
-                                    <option>{{$categorie->description}}</option>
-                                @endforeach
-                                @error('project_type') <span class="text-red-500"{{$message}}></span>@enderror
-                            </select>
-                        </div>
+                        @if($selectOpen)
+                            <div class="mb-4">
+                                <label for="project_type" class="block text-gray-700 text-sm font-bold mb-2">Tipo del proyecto:</label>
+                                <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_type" wire:model="project_type" required>
+                                        <option>Seleccione un tipo de proyecto</option>
+                                    @foreach($categories as $categorie)
+                                        <option>{{$categorie->description}}</option>
+                                    @endforeach
+                                    @error('project_type') <span class="text-red-500"{{$message}}></span>@enderror
+                                </select>
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
