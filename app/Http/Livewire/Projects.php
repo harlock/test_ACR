@@ -37,13 +37,14 @@ class Projects extends Component
         $this->title="";
         $this->description="";
         $this->project_id="";
+        $this->project_type="";
     }
 
     public function store(){
         $this->validate([
            'title'=>'required',
-           'description'=>'required',
-            'project_type'=>'required'
+           'project_type'=>'required',
+           'description'=>'required'
         ]);
 
         try {

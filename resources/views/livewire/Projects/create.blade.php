@@ -21,7 +21,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="project_type" class="block text-gray-700 text-sm font-bold mb-2">Tipo del proyecto:</label>
-                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_type" wire:model="project_type">
+                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_type" wire:model="project_type" required>
                                     <option>Seleccione un tipo de proyecto</option>
                                 @foreach($categories as $categorie)
                                     <option>{{$categorie->description}}</option>
