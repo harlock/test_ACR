@@ -15,7 +15,15 @@ class Projects extends Component
 
     public function render()
     {
-        $this->project = DB::select("call selectAllProjects()");
+        $this->project = DB::select(
+            "select
+		    projects.id,
+		    projects.title,
+            projects.description,
+            projects.view_counter,
+            project_types.description as type_project_description
+	    from
+		    project_types inner join projects on projects.project_type_id = project_types.id");
         $this->categories = ProjectType::all();
         return view('livewire.Projects.projects');
     }
