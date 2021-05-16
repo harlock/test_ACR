@@ -82,12 +82,12 @@ class Projects extends Component
     }
 
     public function edit($id){
+        $this->selectOpen=false;
         $project = Project::findOrFail($id);
         $this->project_id = $id;
         $this->title = $project->title;
         $this->description = $project->description;
         $this->openModal();
-        $this->selectOpen=false;
     }
 
     public function delete($id){
