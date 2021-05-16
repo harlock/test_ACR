@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class SocialNetwork extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'address', 'ally_id', 'social_network_type_id'
+    ];
 }

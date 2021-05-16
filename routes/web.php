@@ -22,3 +22,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
+Route::get('socialNetworks', \App\Http\Livewire\SocialNetworks::class)->name('socialNetworks');
