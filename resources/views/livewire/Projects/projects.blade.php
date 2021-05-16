@@ -28,7 +28,8 @@
                     <th class="px-4 py-2 w-20">Número</th>
                     <th class="px-4 py-2">Título</th>
                     <th class="px-4 py-2">Descripción del proyecto</th>
-                    <th class="px-4 py-2">Total de vistas</th>
+                    <th class="px-4 py-2">Tipo del proyecto</th>
+                    <th class="px-4 py-2">Total de visitas</th>
                     <th class="px-4 py-2">Acciones</th>
                 </tr>
                 </thead>
@@ -38,7 +39,8 @@
                         <td class="border px-4 py-2">{{ $projects->id }}</td>
                         <td class="border px-4 py-2">{{ $projects->title }}</td>
                         <td class="border px-4 py-2">{{ $projects->description }}</td>
-                        <td class="border px-4 py-2"></td>
+                        <td class="border px-4 py-2 text-center">{{ $projects->type_project_description }}</td>
+                        <td class="border px-4 py-2 text-center">{{ $projects->view_counter }}</td>
                         <td class="border px-4 py-2">
                             <button wire:click="edit({{ $projects->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
                             <button wire:click="delete({{ $projects->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
