@@ -28,6 +28,11 @@
                         {{ __('Redes Sociales') }}
                     </x-jet-nav-link>
                 </div>
+                    <x-jet-nav-link href="{{ route('allies') }}" :active="request()->routeIs('allies')">
+                        {{ __('Aliados') }}
+                    </x-jet-nav-link>
+                </div>
+
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
