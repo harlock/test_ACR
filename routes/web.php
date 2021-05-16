@@ -22,3 +22,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
+
+Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
