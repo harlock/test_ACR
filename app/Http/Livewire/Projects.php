@@ -2,22 +2,26 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\Project;
+use App\Models\ProjectType;
+use mysql_xdevapi\Exception;
 
 class Projects extends Component
 {
-    public $project, $title, $description, $view_counter = 0, $slug = "hola", $enabled = 0, $project_id, $project_type_id = 1;
+    public $project, $title, $description, $slug = "hola", $project_id, $project_type, $categories;
     public $isOpen = 0;
 
     public function render()
     {
-        $this->project = Project::all();
+        $this->project = DB::select("call selectAllProjects()");
+        $this->categories = ProjectType::all();
         return view('livewire.Projects.projects');
     }
 
-    public  function create(){
-        $this->reseInputFields();
+    public function create(){
+        $this->resetInputFields();
         $this->openModal();
     }
 
@@ -29,7 +33,7 @@ class Projects extends Component
         $this->isOpen=false;
     }
 
-    private function reseInputFields(){
+    private function resetInputFields(){
         $this->title="";
         $this->description="";
         $this->project_id="";
@@ -38,23 +42,32 @@ class Projects extends Component
     public function store(){
         $this->validate([
            'title'=>'required',
-           'description'=>'required'
+           'description'=>'required',
+            'project_type'=>'required'
         ]);
 
-        Project::updateOrCreate(['id'=>$this->project_id],[
+        try {
+            DB::select("call insertProject(?,?,?,?)", array(
+                $this->title,
+                $this->description,
+                $this->slug,
+                $this->project_type));
+        }catch (\Exception $e){
+        }
+
+        /*Project::updateOrCreate(['id'=>$this->project_id],[
             'title'=>$this->title,
             'description'=>$this->description,
             'view_counter'=>$this->view_counter,
             'slug'=>$this->slug,
             'enabled'=>$this->enabled,
             'project_type_id'=>$this->project_type_id
-        ]);
+        ]);*/
 
         session()->flash('message',
         $this->project_id ? 'Proyecto actualizado exitosamente.': 'Proyecto generado con éxito.');
-
         $this->closeModal();
-        $this->reseInputFields();
+        $this->resetInputFields();
     }
 
     public function edit($id){
@@ -66,7 +79,7 @@ class Projects extends Component
     }
 
     public function delete($id){
-        Projects::find($id)->delete();
+        Project::find($id)->delete();
         session()->flash('message', 'Proyecto eliminado con éxito.');
     }
 }
