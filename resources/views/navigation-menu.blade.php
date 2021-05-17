@@ -33,6 +33,13 @@
                         {{ __('Redes Sociales') }}
                     </x-jet-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('SocialNetworkType') }}" :active="request()->routeIs('SocialNetworkType')">
+                        {{ __('Tipos De Redes sociales') }}
+                    </x-jet-nav-link>
+                </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('allies') }}" :active="request()->routeIs('allies')">
                         {{ __('Aliados') }}
