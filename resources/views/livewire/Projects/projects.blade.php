@@ -18,10 +18,10 @@
                     </div>
                 </div>
             @endif
-            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Crear nuevo proyecto</button>
-            @if($isOpen)
+            @if($isOpen && $update == false)
                 @include('livewire.Projects.create')
             @endif
+            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Crear nuevo proyecto</button>
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-100">
@@ -42,7 +42,10 @@
                         <td class="border px-4 py-2 text-center">{{ $projects->type_project_description }}</td>
                         <td class="border px-4 py-2 text-center">{{ $projects->view_counter }}</td>
                         <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $projects->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
+                            @if($isOpen && $update == true)
+                                @include('livewire.Projects.update')
+                            @endif
+                            <button wire:click="edit({{ $projects->id}})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Editar</button>
                             <button wire:click="delete({{ $projects->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
                         </td>
                     </tr>

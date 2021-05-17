@@ -19,21 +19,10 @@
                             <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" wire:model="description" placeholder="Ingrese una breve descripción del proyecto"></textarea>
                             @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
-                        <div class="mb-4">
-                            <label for="project_type" class="block text-gray-700 text-sm font-bold mb-2">Tipo del proyecto:</label>
-                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_type" wire:model="project_type" required>
-                                <option>Seleccione un tipo de proyecto</option>
-                                @foreach($categories as $categorie)
-                                    <option>{{$categorie->description}}</option>
-                                @endforeach
-                                @error('project_type') <span class="text-red-500"{{$message}}></span>@enderror
-                            </select>
-                        </div>
-                    </div>
                 </div>
                 <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                     <span class="flex w-full rounded-md shadow-sm sm:ml-3 sm:w-auto">
-                        <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+                        <button wire:click.prevent="update()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
                         Guardar
                         </button>
                     </span>
