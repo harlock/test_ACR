@@ -22,3 +22,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
+Route::get('Video', \App\Http\Livewire\Video::class)->name('Video');
+//Route::post('guardarVideo', \App\Http\Livewire\Video::class)->name('guardarVideo');
