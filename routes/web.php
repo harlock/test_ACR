@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\SocialNetworkTypes;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
+
 Route::get('Video', \App\Http\Livewire\Video::class)->name('Video');
-//Route::post('guardarVideo', \App\Http\Livewire\Video::class)->name('guardarVideo');
+
+Route::get('socialNetworks', \App\Http\Livewire\SocialNetworks::class)->name('socialNetworks');
+
+Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypes::class)->name('SocialNetworkType');
+
+Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
+

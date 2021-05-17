@@ -15,8 +15,8 @@ class CreateTypeSocialNetworksTable extends Migration
     {
         Schema::create('social_network_types', function (Blueprint $table) {
             $table->id();
-            $table->string("description"); 
-            $table->string("url"); 
+            $table->string("description");
+            $table->string("url");
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ class CreateTypeSocialNetworksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_social_networks');
+        Schema::dropIfExists('social_network_types');
     }
 }
