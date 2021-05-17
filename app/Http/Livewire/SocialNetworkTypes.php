@@ -68,7 +68,7 @@ class SocialNetworkTypes extends Component
 
     public function delete($id)
     {
-        SocialNetworkTypes::find($id)->delete();
+        SocialNetworkType::find($id)->delete();
         session()->flash('message', 'Social Network eliminada.');
     }
 
