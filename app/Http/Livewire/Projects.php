@@ -79,6 +79,7 @@ class Projects extends Component
         $this->project_id ? 'Proyecto actualizado exitosamente.': 'Proyecto generado con éxito.');
         $this->closeModal();
         $this->resetInputFields();
+        //Aqui va a retornar a la vista de agregar textos, imagenes, videos
     }
 
     public function edit($id){
