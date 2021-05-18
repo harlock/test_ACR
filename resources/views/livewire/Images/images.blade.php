@@ -35,13 +35,13 @@
                 <tbody>
                 @foreach($image as $images)
                     <tr>
-                        <td class="border px-4 py-2">{{ $image->id }}</td>
-                        <td class="border px-4 py-2">{{ $image->images }}</td>
-                        <td class="border px-4 py-2">{{ $image->description }}</td>
-                        <td class="border px-4 py-2">{{ $image->position }}</td>
+                        <td class="border px-4 py-2">{{ $images->id }}</td>
+                        <td class="border px-4 py-2">{{ $images->images }}</td>
+                        <td class="border px-4 py-2">{{ $images->description }}</td>
+                        <td class="border px-4 py-2">{{ $images->position }}</td>
                         <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $image->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
-                            <button wire:click="delete({{ $image->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
+                            <button wire:click="edit({{ $images->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
+                            <button wire:click="delete({{ $images->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
                         </td>
                     </tr>
                 @endforeach

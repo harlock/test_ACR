@@ -1,4 +1,4 @@
-div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400">
+<div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400">
     <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div class="fixed inset-0 transition-opacity">
             <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
@@ -13,26 +13,21 @@ div class="fixed z-10 inset-0 overflow-y-auto ease-out duration-400">
                             <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">Imagen:</label>
                             @if(isset($ally->image))
                                 <img class="img-thumbnail img-fluid" src="{{ asset('storage').'/'.$ally->image }}" width="100" alt="">
-                            @endif                 
+                            @endif
                             <input type="file" class="form-control" name="image" value="" id="image" wire:model="image">
-                            @error('name') <span class="text-danger">{{ $message }}</span> @enderror   
-                        </div>   
+                            @error('name') <span class="text-danger">{{ $message }}</span> @enderror
+                        </div>
                         <div class="mb-4">
                             <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
                             <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2" wire:model="description" placeholder="Enter Body"></textarea>
                             @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
-                            <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
-                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2" wire:model="description" placeholder="Enter Body"></textarea>
-                            @error('position') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>
-                        <div class="mb-4">
-                            <label for="project_type" class="block text-gray-700 text-sm font-bold mb-2">Proyecto:</label>
-                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_type" wire:model="project_type" required>
+                            <label for="project_id" class="block text-gray-700 text-sm font-bold mb-2">Proyecto:</label>
+                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_id" wire:model="project_id" required>
                                 <option>Selecciona un proyecto</option>
-                                @foreach($projects as $projects)
-                                    <option>{{$project_id->description}}</option>
+                                @foreach($project as $projects)
+                                    <option value="{{$projects->id}}">{{$projects->title}}</option>
                                 @endforeach
                                 @error('Projects') <span class="text-red-500"{{$message}}></span>@enderror
                             </select>

@@ -5,14 +5,16 @@ use Livewire\WithFileUploads;
 use Illuminate\Http\Request;
 use Livewire\Component;
 use App\Models\Image;
+use App\Models\Project;
 
 class Images extends Component
 {
-    public $image, $description, $position = 0,$project_id;
+    public $image = "hola", $description, $position = 0,$project_id, $project, $image_id;
     public $isOpen = 0;
 
     public function render()
     {
+        $this->project = Project::all();
         $this->image = Image::all();
         return view('livewire.Images.images');
     }
@@ -38,12 +40,12 @@ class Images extends Component
 
     public function store(){
         $this->validate([
-           'image'=>'required',
+           //'image'=>'required',
            'description'=>'required',
            'position'=>'required'
         ]);
 
-        Videos::updateOrCreate(['id'=>$this->image_id],[
+        Image::updateOrCreate(['id'=>$this->image_id],[
             'image'=>$this->image,
             'description'=>$this->description,
             'position'=>$this->position,
@@ -60,7 +62,7 @@ class Images extends Component
     public function edit($id){
         $image =Image::findOrFail($id);
         $this->image_id = $id;
-        $this->image = $images->image;
+        $this->image = $image->image;
         $this->description = $image->description;
         $this->position = $image->position;
         $this->openModal();
