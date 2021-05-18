@@ -35,3 +35,5 @@ Route::get('image', \App\Http\Livewire\Images::class)->name('image');
 Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
 
 Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
+
+Route::get('projectreferences',\App\Http\Livewire\ProjectReference::class)->name('projectreferences');
