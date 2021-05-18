@@ -39,10 +39,19 @@
                         {{ __('Tipos De Redes sociales') }}
                     </x-jet-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('image') }}" :active="request()->routeIs('image')">
+                        {{ __('Imagenes') }}
+                    </x-jet-nav-link>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('allies') }}" :active="request()->routeIs('allies')">
                         {{ __('Aliados') }}
+                    </x-jet-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('awards') }}" :active="request()->routeIs('awards')">
+                        {{ __('Premios') }}
                     </x-jet-nav-link>
                 </div>
 

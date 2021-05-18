@@ -30,5 +30,8 @@ Route::get('socialNetworks', \App\Http\Livewire\SocialNetworks::class)->name('so
 
 Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypes::class)->name('SocialNetworkType');
 
+Route::get('image', \App\Http\Livewire\Images::class)->name('image');
+
 Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
 
+Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
