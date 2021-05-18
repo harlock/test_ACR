@@ -20,13 +20,13 @@
                             @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
-                            <label for="project_type" class="block text-gray-700 text-sm font-bold mb-2">Tipo del proyecto:</label>
-                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_type" wire:model="project_type" required>
+                            <label for="project_type_id" class="block text-gray-700 text-sm font-bold mb-2">Tipo del proyecto:</label>
+                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_type_id" wire:model="project_type_id" required>
                                 <option>Seleccione un tipo de proyecto</option>
-                                @foreach($categories as $categorie)
-                                    <option>{{$categorie->description}}</option>
+                                @foreach($categorie as $categories)
+                                    <option value="{{$categories->id}}">{{$categories->description}}</option>
                                 @endforeach
-                                @error('project_type') <span class="text-red-500"{{$message}}></span>@enderror
+                                @error('project_type_id') <span class="text-red-500"{{$message}}></span>@enderror
                             </select>
                         </div>
                     </div>
