@@ -5,9 +5,9 @@ namespace App\Http\Livewire;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\Project;
-use App\Models\ProjectReferences;
+use App\Models\ProjectReference;
 
-class ProjectReference extends Component{
+class ProjectReferenceComponet extends Component{
 
     public $description, $project_id, $projectreferences, $projects;
     public $isOpen = 0;
@@ -16,15 +16,15 @@ class ProjectReference extends Component{
     public function render(){
         $this->projectreferences=DB::
         select("select
-            projectreferences.id,
-            projectreferences.description,
-            projectreferences.project_id,
+            project_references.id,
+            project_references.description,
+            project_references.project_id,
             projects.title
         from
-            projectreferences inner join projects on projectreferences.project_id=projects.id
+            project_references inner join projects on project_references.project_id=projects.id
         ");
         $this->projects = Project::all();
-        return view('livewire.ProjectReferences.ProjectReferences');
+        return view('livewire.ProjectReferences.projectReferences');
     }
     public function create(){
         $this->resetInputFields();
@@ -46,15 +46,18 @@ class ProjectReference extends Component{
         $this->id='';
     }
     public function store(){
+
         $this->validate([
             'description' => 'required',
             'project_id' => 'required',
         ]);
-        ProjectReferences::updateOrCreate(['id' => $this->id], [
+        DB::select("insert into project_references (description,project_id) values (?,?)",array($this->description,$this->project_id));
+        /*
+        ProjectReferenceComponet::updateOrCreate(['id' => $this->id], [
             'description' => $this->description,
             'project_id' => $this->project_id
 
-        ]);
+        ]);*/
         session()->flash('message',
 
             $this->id ? 'Referencia actualizada.' : 'Referencia generada con exito.');
@@ -63,7 +66,7 @@ class ProjectReference extends Component{
 
     }
     public function edit($id){
-        $projectreferences = ProjectReferences::findOrFail($id);
+        $projectreferences = ProjectReference::findOrFail($id);
         $this->id = $id;
         $this->description = $projectreferences->description;
         $this->project_id = $projectreferences->project_id;
@@ -71,7 +74,7 @@ class ProjectReference extends Component{
     }
 
     public function delete($id){
-        ProjectReferences::find($id)->delete();
+        ProjectReference::find($id)->delete();
         session()->flash('message', 'Referencia eliminada.');
     }
 

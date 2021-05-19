@@ -22,18 +22,22 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
 
-Route::get('Video', \App\Http\Livewire\Video::class)->name('Video');
 
-Route::get('socialNetworks', \App\Http\Livewire\SocialNetworks::class)->name('socialNetworks');
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
 
-Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypes::class)->name('SocialNetworkType');
+    Route::get('Video', \App\Http\Livewire\Video::class)->name('Video');
 
-Route::get('image', \App\Http\Livewire\Images::class)->name('image');
+    Route::get('socialNetworks', \App\Http\Livewire\SocialNetworks::class)->name('socialNetworks');
 
-Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
+    Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypes::class)->name('SocialNetworkType');
 
-Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
+    Route::get('image', \App\Http\Livewire\Images::class)->name('image');
 
-Route::get('projectreferences',\App\Http\Livewire\ProjectReference::class)->name('projectreferences');
+    Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
+
+    Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
+
+    Route::get('projectreferences',\App\Http\Livewire\ProjectReferenceComponet::class)->name('projectreferences');
+});

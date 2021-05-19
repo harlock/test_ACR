@@ -11,7 +11,7 @@
                     <div class="">
                         <div class="mb-4">
                             <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
-                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Ingresa la descripción" wire:model="description">
+                            <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" placeholder="Ingresa la descripción" wire:model="description">
                             @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
 
@@ -21,7 +21,7 @@
                                 <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_id" wire:model="project_id" required>
                                     <option>Seleccione el proyecto</option>
                                     @foreach($projects as $project)
-                                        <option>{{$project->title}}</option>
+                                        <option value="{{$project->id}}">{{$project->title}}</option>
                                     @endforeach
                                     @error('project_id') <span class="text-red-500"{{$message}}></span>@enderror
                                 </select>

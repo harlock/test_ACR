@@ -13,7 +13,7 @@ class CreateProjectReferencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('projectreferences', function (Blueprint $table) {
+        Schema::create('project_references', function (Blueprint $table) {
             $table->id();
             $table->string("description");
             $table->bigInteger("project_id")->unsigned();
@@ -32,6 +32,6 @@ class CreateProjectReferencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projectreferences');
+        Schema::dropIfExists('project_references');
     }
 }
