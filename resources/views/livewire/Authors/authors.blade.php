@@ -16,7 +16,7 @@
             @if($isOpen)
                 @include('livewire.Authors.create')
             @endif
-            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Crear nuevo proyecto</button>
+            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Agregar autor de proyecto</button>
             <table class="table-fixed w-full">
                 <thead>
                 <tr class="bg-gray-100">
