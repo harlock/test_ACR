@@ -12,7 +12,7 @@
                         <div class="mb-4">
                             <label for="project_id" class="block text-gray-700 text-sm font-bold mb-2">Seleccione el proyecto:</label>
                             <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_id" wire:model="project_id" required>
-                                <option>Seleccione el proyecto</option>
+                                <option>Proyectos</option>
                                 @foreach($project as $projects)
                                     <option value="{{$projects->id}}">{{$projects->title}}</option>
                                 @endforeach
@@ -22,7 +22,7 @@
                         <div class="mb-4">
                             <label for="user_id" class="block text-gray-700 text-sm font-bold mb-2">Seleccione el autor:</label>
                             <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_id" wire:model="user_id" required>
-                                <option>Seleccione el autor</option>
+                                <option>Autores</option>
                                 @foreach($user as $users)
                                     <option value="{{$users->id}}">{{$users->name}}</option>
                                 @endforeach
