@@ -23,12 +23,15 @@
                     </x-jet-nav-link>
                 </div>
 
+<<<<<<< HEAD
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('projectreferences') }}" :active="request()->routeIs('projectreferences')">
                         {{ __('Referencias') }}
                     </x-jet-nav-link>
                 </div>
 
+=======
+>>>>>>> 9b705e4743a8ae5556f503674cf9754302aea541
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('Video') }}" :active="request()->routeIs('Video')">
                         {{ __('Videos') }}
@@ -46,19 +49,28 @@
                         {{ __('Tipos De Redes sociales') }}
                     </x-jet-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('image') }}" :active="request()->routeIs('image')">
                         {{ __('Imagenes') }}
                     </x-jet-nav-link>
+                </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('allies') }}" :active="request()->routeIs('allies')">
                         {{ __('Aliados') }}
                     </x-jet-nav-link>
                 </div>
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('awards') }}" :active="request()->routeIs('awards')">
                         {{ __('Premios') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('authors') }}" :active="request()->routeIs('authors')">
+                        {{ __('Autores') }}
                     </x-jet-nav-link>
                 </div>
 
