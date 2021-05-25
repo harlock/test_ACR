@@ -26,6 +26,7 @@ class TeamFactory extends Factory
             'name' => $this->faker->unique()->company,
             'user_id' => User::factory(),
             'personal_team' => true,
+            'video' => 'Videos/' . $this->faker->video('public/Videos', 1920, 1080, null, false)
         ];
     }
 }

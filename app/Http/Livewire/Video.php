@@ -4,9 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Videos;
+use Livewire\WithFileUploads;
 
 class Video extends Component
 {
+    use WithFileUploads;
+
     public $videos, $video, $description, $position = 0, $video_id, $project_id = 1;
     public $isOpen = 0;
 
@@ -37,10 +40,12 @@ class Video extends Component
 
     public function store(){
         $this->validate([
-           'video'=>'required',
+           'video'=>'required|video|max:1000000',
            'description'=>'required',
            'position'=>'required'
         ]);
+
+        $video= $this->video->public('Videos');
 
         Videos::updateOrCreate(['id'=>$this->video_id],[
             'video'=>$this->video,
@@ -50,7 +55,7 @@ class Video extends Component
         ]);
 
         session()->flash('message',
-        $this->project_id ? 'Video actualizado exitosamente.': 'video generado con éxito.');
+        $this->video_id ? 'Video actualizado exitosamente.': 'video generado con éxito.');
 
         $this->closeModal();
         $this->reseInputFields();

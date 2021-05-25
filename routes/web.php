@@ -22,8 +22,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
-
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
 
@@ -33,7 +31,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypes::class)->name('SocialNetworkType');
 
-<<<<<<< HEAD
     Route::get('image', \App\Http\Livewire\Images::class)->name('image');
 
     Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
@@ -42,8 +39,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('projectreferences',\App\Http\Livewire\ProjectReferenceComponet::class)->name('projectreferences');
 });
-=======
+
 Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
 
 Route::get('authors', \App\Http\Livewire\Authors::class)->name('authors');
->>>>>>> 9b705e4743a8ae5556f503674cf9754302aea541
