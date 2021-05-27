@@ -6,12 +6,12 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\Project;
 use App\Models\ProjectType;
-use mysql_xdevapi\Exception;
+use Illuminate\Support\Str;
 
 class Projects extends Component
 {
-    public $project, $title, $description, $slug = "hola", $project_id, $project_type, $categories;
-    public $isOpen = 0;
+    public $project, $title, $description, $slug, $project_id, $project_type_id, $categorie;
+    public $isOpen = 0, $view_counter = "0" , $enabled = "0";
     public $update;
     public function render()
     {
@@ -24,7 +24,7 @@ class Projects extends Component
             project_types.description as type_project_description
 	    from
 		    project_types inner join projects on projects.project_type_id = project_types.id");
-        $this->categories = ProjectType::all();
+        $this->categorie = ProjectType::all();
         return view('livewire.Projects.projects');
     }
 
@@ -46,39 +46,40 @@ class Projects extends Component
         $this->title="";
         $this->description="";
         $this->project_id="";
-        $this->project_type="";
+        $this->project_type_id="";
     }
 
     public function store(){
 
         $this->validate([
            'title'=>'required',
-            'project_type'=>'required',
+            'project_type_id'=>'required',
            'description'=>'required'
         ]);
 
-        try {
+        /*try {
             DB::select("call insertProject(?,?,?,?)", array(
                 $this->title,
                 $this->description,
                 $this->slug,
                 $this->project_type));
         }catch (\Exception $e){
-        }
+        }*/
 
-        /*Project::updateOrCreate(['id'=>$this->project_id],[
+        Project::create([
             'title'=>$this->title,
             'description'=>$this->description,
             'view_counter'=>$this->view_counter,
-            'slug'=>$this->slug,
+            'slug'=>Str::slug($this->title),
             'enabled'=>$this->enabled,
             'project_type_id'=>$this->project_type_id
-        ]);*/
+        ]);
 
         session()->flash('message',
         $this->project_id ? 'Proyecto actualizado exitosamente.': 'Proyecto generado con éxito.');
         $this->closeModal();
         $this->resetInputFields();
+        //Aqui va a retornar a la vista de agregar textos, imagenes, videos
     }
 
     public function edit($id){
@@ -102,6 +103,7 @@ class Projects extends Component
             $project = Project::find($this->project_id);
             $project->update([
                 'title'=>$this->title,
+                'slug'=>Str::slug($this->title),
                 'description'=>$this->description
             ]);
         }

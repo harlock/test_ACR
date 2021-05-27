@@ -1,22 +1,22 @@
 <?php
 
 namespace App\Http\Livewire;
-
-use Livewire\Component;
-use App\Models\Videos;
 use Livewire\WithFileUploads;
+use Illuminate\Http\Request;
+use Livewire\Component;
+use App\Models\Image;
+use App\Models\Project;
 
-class Video extends Component
+class Images extends Component
 {
-    use WithFileUploads;
-
-    public $videos, $video, $description, $position = 0, $video_id, $project_id = 1;
+    public $image = "hola", $description, $position = 0,$project_id, $project, $image_id;
     public $isOpen = 0;
 
     public function render()
     {
-        $this->videos = Videos::all();
-        return view('livewire.Video.video');
+        $this->project = Project::all();
+        $this->image = Image::all();
+        return view('livewire.Images.images');
     }
 
     public  function create(){
@@ -33,45 +33,43 @@ class Video extends Component
     }
 
     private function reseInputFields(){
-        $this->video="";
+        $this->image="";
         $this->description="";
-        $this->video_id="";
+        $this->image_id="";
     }
 
     public function store(){
         $this->validate([
-           'video'=>'required|video|max:1000000',
+           //'image'=>'required',
            'description'=>'required',
            'position'=>'required'
         ]);
 
-        $video= $this->video->public('Videos');
-
-        Videos::updateOrCreate(['id'=>$this->video_id],[
-            'video'=>$this->video,
+        Image::updateOrCreate(['id'=>$this->image_id],[
+            'image'=>$this->image,
             'description'=>$this->description,
             'position'=>$this->position,
             'project_id'=>$this->project_id
         ]);
 
         session()->flash('message',
-        $this->video_id ? 'Video actualizado exitosamente.': 'video generado con éxito.');
+        $this->project_id ? 'Imagen actualizada exitosamente.': 'Imagen generada con éxito.');
 
         $this->closeModal();
         $this->reseInputFields();
     }
 
     public function edit($id){
-        $videos = Videos::findOrFail($id);
-        $this->video_id = $id;
-        $this->video = $videos->video;
-        $this->description = $videos->description;
-        $this->position = $videos->position;
+        $image =Image::findOrFail($id);
+        $this->image_id = $id;
+        $this->image = $image->image;
+        $this->description = $image->description;
+        $this->position = $image->position;
         $this->openModal();
     }
 
     public function delete($id){
-        Videos::find($id)->delete();
-        session()->flash('message', 'Video eliminado con éxito.');
+        Image::find($id)->delete();
+        session()->flash('message', 'Imagen eliminada con éxito.');
     }
 }

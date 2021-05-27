@@ -42,14 +42,14 @@
                         <td class="border px-4 py-2 text-center">{{ $projects->type_project_description }}</td>
                         <td class="border px-4 py-2 text-center">{{ $projects->view_counter }}</td>
                         <td class="border px-4 py-2">
-                            @if($isOpen && $update == true)
-                                @include('livewire.Projects.update')
-                            @endif
                             <button wire:click="edit({{ $projects->id}})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Editar</button>
                             <button wire:click="delete({{ $projects->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
                         </td>
                     </tr>
                 @endforeach
+                @if($isOpen && $update == true)
+                    @include('livewire.Projects.update')
+                @endif
                 </tbody>
             </table>
         </div>

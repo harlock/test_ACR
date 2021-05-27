@@ -10,6 +10,6 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable  = [
-        'title', 'description', 'slug', 'project_type'
+        'title', 'description', 'slug', 'project_type_id', 'view_counter', 'enabled'
     ];
 }
