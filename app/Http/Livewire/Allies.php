@@ -12,7 +12,7 @@ class Allies extends Component
 {
 
     use WithFileUploads;
-    public $allies, $name, $image,$telephone, $ally_id,$file;
+    public $allies, $name, $image,$telephone, $ally_id;
     public $isOpen = 0;
 
     public function render()
@@ -37,28 +37,33 @@ class Allies extends Component
         $this->ally_id = '';
     }
     public function store(Request $request){
-        $dataValid=$this->validate([
+        $this->validate([
             'name' => 'required',
-            'image' => 'required',
+            'image' => 'image|max:1024',
             'telephone' => 'required',
         ]);  
-        $datos = request()->all(); 
+        //$datos = request()->all(); 
         
         //$this->image->store('uploads','public');storage/uploads/h2oDW1SmHXyljfxSIFyZgihWcuwHp0XQLfGYjbvC.jpg
         /*if($request->hasFile('image')){
             $datos['image']=$request->file('image')->store('uploads','public');
         } */
-        if ($request->hasFile('image')){
+        /*if ($request->hasFile('image')){
             $file=$request->file('image');
             $name=time().$file->getClientOriginalName(); 
             $file->move(public_path().'/allies/',$name);
         }  
+        */
 
-        Ally::updateOrCreate(['id' => $this->ally_id], [
+        //$file=$request->file('image');
+        //$name=time().$file->getClientOriginalName();
+        Ally::updateOrCreate(['id' => $this->ally_id],[
             'name' => $this->name,
             'image' => $this->image,
             'telephone' => $this->telephone
-        ]);      
+            
+        ]);   
+        //return response()->json($file);   
         session()->flash('message', 
         $this->ally_id ? 'Aliado actualizado.' : 'Aliado agragado con exito.');
 

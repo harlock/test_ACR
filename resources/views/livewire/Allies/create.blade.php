@@ -21,7 +21,7 @@
 
               <div class="mb-4">
 
-                  <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
+                  <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Nombre Completo:</label>
                   <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput1" placeholder="Nombre" wire:model="name">
                   @error('title') <span class="text-red-500">{{ $message }}</span>@enderror
 
@@ -37,7 +37,7 @@
               </div>   
 
               <div class="mb-4">
-                  <label for="exampleFormControlInput3" class="block text-gray-700 text-sm font-bold mb-2">Telefono:</label>
+                  <label for="exampleFormControlInput3" class="block text-gray-700 text-sm font-bold mb-2">Numero de telefono:</label>
                   <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput3" wire:model="telephone" placeholder="Telefono">
                   @error('body') <span class="text-red-500">{{ $message }}</span>@enderror
               </div>
@@ -53,7 +53,7 @@
 
           <button wire:click.prevent="store()" type="button" class="inline-flex justify-center w-full rounded-md border border-transparent px-4 py-2 bg-green-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green transition ease-in-out duration-150 sm:text-sm sm:leading-5">
 
-            Save
+            Guardar
 
           </button>
 
@@ -61,7 +61,7 @@
 
         <span class="mt-3 flex w-full rounded-md shadow-sm sm:mt-0 sm:w-auto">            
           <button wire:click="closeModal()" type="button" class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-            Cancel
+            Cancelar
           </button>
         </span>
         </form>

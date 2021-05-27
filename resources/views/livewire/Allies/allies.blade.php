@@ -38,7 +38,8 @@
                         <td class="border px-4 py-2">{{ $ally->id }}</td>
                         <td class="border px-4 py-2">{{ $ally->name }}</td>     
                         <td>  
-                            <a target="_blank" href="{{asset('Allies').'/' .$ally->image}}">{{$ally->image}}</a>
+                            <a target="_blank" href="{{asset('allies').'/'}}">{{$ally->image}}</a>
+                            <img src="{{asset('allies/Ya')}}">
                         </td>
                         <td class="border px-4 py-2">{{ $ally->telephone }}</td>
 
