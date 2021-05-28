@@ -36,7 +36,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
 
-    Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
+    Route::get('award', \App\Http\Livewire\Awards::class)->name('awards');
 
     Route::get('projectreferences',\App\Http\Livewire\ProjectReferenceComponet::class)->name('projectreferences');
 
