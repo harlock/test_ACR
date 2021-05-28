@@ -38,8 +38,9 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
 
     Route::get('projectreferences',\App\Http\Livewire\ProjectReferenceComponet::class)->name('projectreferences');
+
+    Route::get('authors', \App\Http\Livewire\Authors::class)->name('authors');
+
+    Route::get('projecttypes', \App\Http\Livewire\ProjectTypes::class)->name('projecttypes');
+
 });
-
-Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
-
-Route::get('authors', \App\Http\Livewire\Authors::class)->name('authors');
