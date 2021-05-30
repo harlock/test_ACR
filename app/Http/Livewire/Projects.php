@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\Project;
 use App\Models\ProjectType;
-use mysql_xdevapi\Exception;
+use Illuminate\Support\Str;
 
 class Projects extends Component
 {
-    public $project, $title, $description, $slug = "hola", $project_id, $project_type_id, $categorie;
+    public $project, $title, $description, $slug, $project_id, $project_type_id, $categorie;
     public $isOpen = 0, $view_counter = "0" , $enabled = "0";
     public $update;
     public function render()
@@ -70,7 +70,7 @@ class Projects extends Component
             'title'=>$this->title,
             'description'=>$this->description,
             'view_counter'=>$this->view_counter,
-            'slug'=>$this->slug,
+            'slug'=>Str::slug($this->title),
             'enabled'=>$this->enabled,
             'project_type_id'=>$this->project_type_id
         ]);
@@ -103,6 +103,7 @@ class Projects extends Component
             $project = Project::find($this->project_id);
             $project->update([
                 'title'=>$this->title,
+                'slug'=>Str::slug($this->title),
                 'description'=>$this->description
             ]);
         }

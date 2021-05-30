@@ -10,19 +10,24 @@
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="">
                         <div class="mb-4">
-                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nombre del premio:</label>
-                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" wire:model="name" placeholder="Ingrese el nombre del premio"></textarea>
-                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror
+                            <label for="project_id" class="block text-gray-700 text-sm font-bold mb-2">Seleccione el proyecto:</label>
+                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_id" wire:model="project_id" required>
+                                <option>Proyectos</option>
+                                @foreach($project as $projects)
+                                    <option value="{{$projects->id}}">{{$projects->title}}</option>
+                                @endforeach
+                                @error('project_id') <span class="text-red-500"{{$message}}></span>@enderror
+                            </select>
                         </div>
                         <div class="mb-4">
-                            <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
-                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" wire:model="description" placeholder="Ingrese una breve descripción del tipo de proyecto"></textarea>
-                            @error('description') <span class="text-red-500">{{ $message }}</span>@enderror
-                        </div>
-                        <div class="mb-4">
-                            <label for="description_US" class="block text-gray-700 text-sm font-bold mb-2">Descripción US:</label>
-                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description_US" wire:model="description_US" placeholder="Ingresa descripcion US"></textarea>
-                            @error('description_US') <span class="text-red-500">{{ $message }}</span>@enderror
+                            <label for="user_id" class="block text-gray-700 text-sm font-bold mb-2">Seleccione el autor:</label>
+                            <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="user_id" wire:model="user_id" required>
+                                <option>Autores</option>
+                                @foreach($user as $users)
+                                    <option value="{{$users->id}}">{{$users->name}}</option>
+                                @endforeach
+                                @error('user_id') <span class="text-red-500"{{$message}}></span>@enderror
+                            </select>
                         </div>
                     </div>
                 </div>

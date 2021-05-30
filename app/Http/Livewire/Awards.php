@@ -4,21 +4,22 @@ namespace App\Http\Livewire;
 use Livewire\WithFileUploads;
 use Illuminate\Http\Request;
 use Livewire\Component;
-use App\Models\Awards;
+use App\Models\Award;
 
-class Award extends Component
+class Awards extends Component
 {
-    public $awards, $name, $description, $description_US, $image, $file;
+    public $awards, $name, $description, $description_US, $award_id;
+    public $image='';
     public $isOpen = 0;
 
     public function render()
     {
-        $this->awards= Awards::all();
+        $this->awards= Award::all();
         return view('livewire.Awards.awards');
     }
 
     public  function create(){
-        $this->reseInputFields();
+        $this->resetInputFields();
         $this->openModal();
     }
 
@@ -30,41 +31,42 @@ class Award extends Component
         $this->isOpen=false;
     }
 
-    private function reseInputFields(){
-        $this->awards="";
+    private function resetInputFields(){
+        $this->award_id="";
         $this->name="";
         $this->description="";
         $this->description_US="";
-        $this->image="";
     }
 
     public function store(){
         $this->validate([
-           'award'=>'required',
+           'name'=>'required',
            'description'=>'required',
-           'description_US'=>'required',
-           'image'=>'required'
+           'description_US'=>'required'
         ]);
 
-        Awards::updateOrCreate(['id'=>$this->awards_id],[
-            'awards'=>$this->awards,
+        Award::updateOrCreate(['id'=>$this->award_id],[
+            'name'=>$this->name,
             'description'=>$this->description,
-            'position'=>$this->description,
-            'position'=>$this->description_US,
-            'position'=>$this->image
+            'description_US'=>$this->description_US,
+            'image'=>$this->image
         ]);
+        session()->flash('message',
+            $this->id ? 'Premio actualizado.': 'Premio generado con éxito.');
+        $this->closeModal();
+        $this->resetInputFields();
     }
     public function edit($id){
-        $awards = Awards::findOrFail($id);
+        $awards = Award::findOrFail($id);
         $this->awards_id = $id;
-        $this->awards = $award->awards;
+        $this->name = $awards->name;
         $this->description = $awards->description;
         $this->description_US= $awards->description_US;
         $this->image= $awards->image;
         $this->openModal();
     }
     public function delete($id){
-        Awards::find($id)->delete();
-        session()->flash('message', 'Imagen eliminada con éxito.');
+        Award::find($id)->delete();
+        session()->flash('message', 'Premio eliminado con éxito.');
     }
 }

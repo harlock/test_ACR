@@ -18,7 +18,7 @@
                     </div>
                 </div>
             @endif
-            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Agrega una imagen</button>
+            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Agrega un premio</button>
             @if($isOpen)
                 @include('livewire.Awards.create')
             @endif
@@ -35,14 +35,14 @@
                 <tbody>
                 @foreach($awards as $award)
                     <tr>
-                        <td class="border px-4 py-2">{{ $awards->id }}</td>
-                        <td class="border px-4 py-2">{{ $awards->name }}</td>
-                        <td class="border px-4 py-2">{{ $awards->description }}</td>
-                        <td class="border px-4 py-2">{{ $awards->$description_US }}</td>
-                        <td class="border px-4 py-2">{{ $awards->$image }}</td>
+                        <td class="border px-4 py-2">{{ $award->id }}</td>
+                        <td class="border px-4 py-2">{{ $award->name }}</td>
+                        <td class="border px-4 py-2">{{ $award->description }}</td>
+                        <td class="border px-4 py-2">{{ $award->description_US }}</td>
+                        <td class="border px-4 py-2">{{ $award->image }}</td>
                         <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $awards->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
-                            <button wire:click="delete({{ $awards->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
+                            <button wire:click="edit({{ $award->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
+                            <button wire:click="delete({{ $award->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
                         </td>
                     </tr>
                 @endforeach

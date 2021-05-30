@@ -1,6 +1,6 @@
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Aliados
+        Proyectos premiados
     </h2>
 </x-slot>
 <div class="py-12">
@@ -15,50 +15,33 @@
                   </div>
                 </div>
             @endif
-            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Agregar nuevo Aliado</button>
-
+            <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">nuevo poryecto premiado</button>
             @if($isOpen)
-                @include('livewire.Allies.create')
+                @include('livewire.ProjectAwards.create')
             @endif
-
             <table class="table-fixed w-full">
                 <thead>
                     <tr class="bg-gray-100">
-                        <th class="px-4 py-2 w-20">No.</th>
+                        <th class="px-4 py-2 w-20">Fecha</th>
+                        <th class="px-4 py-2">Titulo</th>
                         <th class="px-4 py-2">Nombre</th>
-                        <th class="px-4 py-2">Imagen</th>
-                        <th class="px-4 py-2">Telefono</th>
                         <th class="px-4 py-2">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-
-                    @foreach($allies as $ally)
+                    @foreach($pojectAward as $pojectAwards)
                     <tr>
-                        <td class="border px-4 py-2">{{ $ally->id }}</td>
-                        <td class="border px-4 py-2">{{ $ally->name }}</td>     
-                        <td>  
-                            <a target="_blank" href="{{asset('allies').'/'}}">{{$ally->image}}</a>
-                            <img src="{{asset('allies/Ya')}}">
-                        </td>
-                        <td class="border px-4 py-2">{{ $ally->telephone }}</td>
-
+                        <td class="border px-4 py-2">{{ $pojectAwards->date }}</td>
+                        <td class="border px-4 py-2">{{ $pojectAwards->title }}</td>
+                        <td class="border px-4 py-2">{{ $pojectAwards->name }}</td>
                         <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $ally->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
-
-                            <button wire:click="delete({{ $ally->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
+                            <button wire:click="edit({{ $pojectAwards->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Editar</button>
+                            <button wire:click="delete({{ $pojectAwards->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
                         </td>
-
                     </tr>
-
                     @endforeach
-
                 </tbody>
-
             </table>
-
         </div>
-
     </div>
-
 </div>
