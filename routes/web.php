@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\SocialNetworkTypes;
+use App\Http\Livewire\Contents;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,5 @@ Route::get('image', \App\Http\Livewire\Images::class)->name('image');
 Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
 
 Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
+
+Route::get('contents', \App\Http\Livewire\Contents::class)->name('contents');
