@@ -108,4 +108,3 @@ class Contents extends Component
         session()->flash('message', 'Contenido eliminado con éxito.');
     }
 }
-
