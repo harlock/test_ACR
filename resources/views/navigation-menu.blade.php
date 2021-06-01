@@ -19,7 +19,7 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('projecttypes') }}" :active="request()->routeIs('projecttypes')">
-                        {{ __('Tipo de proyecto') }}
+                        {{ __('Tipo de proyectos') }}
                     </x-jet-nav-link>
                 </div>
 
