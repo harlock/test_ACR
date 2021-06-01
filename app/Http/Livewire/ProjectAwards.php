@@ -19,7 +19,7 @@ class ProjectAwards extends Component
     public function render()
     {
         $this->pojectAward = DB::select(
-            "select 
+            "select
             pa.date, p.title, aw.name
         from
             project_awards as pa,
@@ -52,7 +52,7 @@ class ProjectAwards extends Component
         $this->project_id="";
         $this->award_id="";
         $this->project_awards_id="";
-        
+
     }
 
     public function store(){
@@ -60,7 +60,7 @@ class ProjectAwards extends Component
            'date'=>'required',
            'project_id'=>'required',
            'award_id'=>'required'
-           
+
         ]);
 
         ProjectAward::updateOrCreate(['id'=>$this->project_awards_id],[
@@ -69,7 +69,7 @@ class ProjectAwards extends Component
             'award_id'=>$this->award_id
         ]);
 
-        
+
 
         session()->flash('message',
         $this->id ? 'Premio de proyecto actualizado exitosamente.': 'Premio de proyecto generado exitosamente.');
