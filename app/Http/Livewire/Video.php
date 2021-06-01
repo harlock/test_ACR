@@ -45,7 +45,7 @@ class Video extends Component
            'position'=>'required'
         ]);
 
-        $video= $this->video->public('Videos');
+        /*$video= $this->video->public('Videos');*/
 
         Videos::updateOrCreate(['id'=>$this->video_id],[
             'video'=>$this->video,
