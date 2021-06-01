@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\SocialNetworkTypes;
+use App\Http\Livewire\Contents;
+use App\Http\Livewire\Awards;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+
     Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
 
     Route::get('Video', \App\Http\Livewire\Video::class)->name('Video');
@@ -35,13 +39,19 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
 
-    Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
+    Route::get('award', \App\Http\Livewire\Awards::class)->name('awards');
 
     Route::get('projectreferences',\App\Http\Livewire\ProjectReferenceComponet::class)->name('projectreferences');
 
     Route::get('contents', \App\Http\Livewire\Contents::class)->name('contents');
+
+    Route::get('project_awards', \App\Http\Livewire\ProjectAwards::class)->name('project_awards');
+
+    Route::get('authors', \App\Http\Livewire\Authors::class)->name('authors');
+
+    Route::get('projecttypes', \App\Http\Livewire\ProjectTypes::class)->name('projecttypes');
+  
 });
 
-Route::get('award', \App\Http\Livewire\Award::class)->name('awards');
 
-Route::get('authors', \App\Http\Livewire\Authors::class)->name('authors');
+

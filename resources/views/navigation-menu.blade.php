@@ -18,6 +18,12 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('projecttypes') }}" :active="request()->routeIs('projecttypes')">
+                        {{ __('Tipo de proyecto') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('projects') }}" :active="request()->routeIs('projects')">
                         {{ __('Proyectos') }}
                     </x-jet-nav-link>
@@ -28,7 +34,7 @@
                         {{ __('Referencias') }}
                     </x-jet-nav-link>
                 </div>
-                
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('Video') }}" :active="request()->routeIs('Video')">
                         {{ __('Videos') }}
@@ -64,6 +70,11 @@
                         {{ __('Premios') }}
                     </x-jet-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('contents') }}" :active="request()->routeIs('content')">
+                        {{ __('Contenidos') }}
+                    </x-jet-nav-link>
+                </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('authors') }}" :active="request()->routeIs('authors')">
@@ -72,8 +83,8 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('contents') }}" :active="request()->routeIs('contents')">
-                        {{ __('Contenido') }}
+                    <x-jet-nav-link href="{{ route('project_awards') }}" :active="request()->routeIs('project_awards')">
+                        {{ __('Premios de proyectos') }}
                     </x-jet-nav-link>
                 </div>
 
