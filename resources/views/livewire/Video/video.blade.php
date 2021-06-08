@@ -33,9 +33,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($videos as $video)
+                @foreach($videos as $index=> $video)
                     <tr>
-                        <td class="border px-4 py-2">{{ $video->id }}</td>
+                        <td class="border px-4 py-2">{{ $index+1 }}</td>
                         <td class="border px-4 py-2">{{ $video->video }}</td>
                         <td class="border px-4 py-2">{{ $video->description }}</td>
                         <td class="border px-4 py-2">{{ $video->position }}</td>

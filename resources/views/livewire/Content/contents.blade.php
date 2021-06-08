@@ -33,9 +33,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($content as $contents)
+                @foreach($content as $index=> $contents)
                     <tr>
-                        <td class="border px-4 py-2">{{ $contents->id }}</td>
+                        <td class="border px-4 py-2">{{ $index+1 }}</td>
                         <td class="border px-4 py-2">{{ $contents->text }}</td>
                         <td class="border px-4 py-2">{{ $contents->position }}</td>
                         <td class="border px-4 py-2 text-center">{{ $contents->project_title }}</td>

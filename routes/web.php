@@ -29,7 +29,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
 
-    Route::get('Video', \App\Http\Livewire\Video::class)->name('Video');
+    Route::get('Video', \App\Http\Livewire\videoComponent::class)->name('Video');
 
     Route::get('socialNetworks', \App\Http\Livewire\SocialNetworks::class)->name('socialNetworks');
 
