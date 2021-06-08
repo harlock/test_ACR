@@ -31,9 +31,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($projectreferences as $references)
+                @foreach($projectreferences as $index=> $references )
                     <tr>
-                        <td class="border px-4 py-2">{{ $references->id }}</td>
+                        <td class="border px-4 py-2">{{ $index+1 }}</td>
                         <td class="border px-4 py-2">{{ $references->description }}</td>
                         <td class="border px-4 py-2">{{ $references->project_id }}</td>
                         <td class="border px-4 py-2">{{ $references->title }}</td>
