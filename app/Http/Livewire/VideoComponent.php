@@ -3,19 +3,19 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Videos;
+use App\Models\Video;
 use Livewire\WithFileUploads;
 
-class Video extends Component
+class VideoComponent extends Component
 {
     use WithFileUploads;
 
-    public $videos, $video, $description, $position = 0, $video_id, $project_id = 1;
+    public $videos, $video, $description, $position = 0, $video_id, $project_id;
     public $isOpen = 0;
 
     public function render()
     {
-        $this->videos = Videos::all();
+        $this->videos = Video::all();
         return view('livewire.Video.video');
     }
 
@@ -45,7 +45,7 @@ class Video extends Component
            'position'=>'required'
         ]);
 
-        $video= $this->video->public('Videos');
+        /*$video= $this->video->public('Videos');*/
 
         Videos::updateOrCreate(['id'=>$this->video_id],[
             'video'=>$this->video,
@@ -62,7 +62,7 @@ class Video extends Component
     }
 
     public function edit($id){
-        $videos = Videos::findOrFail($id);
+        $videos = Video::findOrFail($id);
         $this->video_id = $id;
         $this->video = $videos->video;
         $this->description = $videos->description;
@@ -71,7 +71,7 @@ class Video extends Component
     }
 
     public function delete($id){
-        Videos::find($id)->delete();
+        Video::find($id)->delete();
         session()->flash('message', 'Video eliminado con éxito.');
     }
 }

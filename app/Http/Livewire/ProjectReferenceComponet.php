@@ -9,7 +9,7 @@ use App\Models\ProjectReference;
 
 class ProjectReferenceComponet extends Component{
 
-    public $description, $project_id, $projectreferences, $projects;
+    public $description, $project_id, $projectreferences, $projects,$projectreference_id;
     public $isOpen = 0;
     public $selectOpen = 0;
 
@@ -43,7 +43,7 @@ class ProjectReferenceComponet extends Component{
     private function resetInputFields(){
         $this->description = '';
         $this->project_id = '';
-        $this->id='';
+        $this->projectreference_id='';
     }
     public function store(){
 
@@ -51,23 +51,23 @@ class ProjectReferenceComponet extends Component{
             'description' => 'required',
             'project_id' => 'required',
         ]);
-        DB::select("insert into project_references (description,project_id) values (?,?)",array($this->description,$this->project_id));
-        /*
-        ProjectReferenceComponet::updateOrCreate(['id' => $this->id], [
+        //DB::select("insert into project_references (description,project_id) values (?,?)",array($this->description,$this->project_id));
+
+        ProjectReference::updateOrCreate(['id' => $this->projectreference_id], [
             'description' => $this->description,
             'project_id' => $this->project_id
 
-        ]);*/
+        ]);
         session()->flash('message',
 
-            $this->id ? 'Referencia actualizada.' : 'Referencia generada con exito.');
+            $this->projectreference_id ? 'Referencia actualizada.' : 'Referencia generada con exito.');
         $this->closeModal();
         $this->resetInputFields();
 
     }
     public function edit($id){
         $projectreferences = ProjectReference::findOrFail($id);
-        $this->id = $id;
+        $this->projectreference_id = $id;
         $this->description = $projectreferences->description;
         $this->project_id = $projectreferences->project_id;
         $this->openModal();
