@@ -10,11 +10,12 @@ class VideoComponent extends Component
 {
     use WithFileUploads;
 
-    public $videos, $video, $description, $position = 0, $video_id, $project_id;
-    public $isOpen = 0;
+    public $videos, $video, $description, $video_id, $project_id, $project;
+    public $isOpen = 0, $position = 0;
 
     public function render()
     {
+        $this->project= Video::all();
         $this->videos = Video::all();
         return view('livewire.Video.video');
     }
@@ -35,19 +36,21 @@ class VideoComponent extends Component
     private function reseInputFields(){
         $this->video="";
         $this->description="";
+        $this->position="";
         $this->video_id="";
+        $this->project_id="";
     }
 
     public function store(){
         $this->validate([
            'video'=>'required|video|max:1000000',
            'description'=>'required',
-           'position'=>'required'
+           'position'=>'required',
+           'project_id'=>'required'
         ]);
 
-        /*$video= $this->video->public('Videos');*/
 
-        Videos::updateOrCreate(['id'=>$this->video_id],[
+        Video::updateOrCreate(['id'=>$this->video_id],[
             'video'=>$this->video,
             'description'=>$this->description,
             'position'=>$this->position,
@@ -67,6 +70,7 @@ class VideoComponent extends Component
         $this->video = $videos->video;
         $this->description = $videos->description;
         $this->position = $videos->position;
+        $this->project_id = $videos->project_id;
         $this->openModal();
     }
 

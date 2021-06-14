@@ -7,29 +7,20 @@ use App\Models\Content;
 use App\Models\Project;
 use Illuminate\Support\Facades\DB;
 
-class Contents extends Component
+class ContentComponent extends Component
 {
 
-    public $content, $text, $content_id, $projectt;
+    public $content, $text, $content_id, $project_id, $project;
     public $isOpen = 0, $position = 0 ;
-    public $update;
 
     public function render()
     {
-        $this->content = DB::select(
-            "select
-            contents.id,
-            contents.text,
-            contents.position,
-            projects.title as project_title
-        from
-            projects inner join contents on contents.project_id = projects.id");
-        $this->projectt = Project::all();
+        $this->project = Content::all();
+        $this->content = Content::all();
         return view('livewire.Content.contents');
     }
 
     public  function create(){
-        $this->update=false;
         $this->reseInputFields();
         $this->openModal();
     }
@@ -44,6 +35,7 @@ class Contents extends Component
 
     private function reseInputFields(){
         $this->text="";
+        $this->postion="";
         $this->content_id="";
         $this->project_id="";
     }
@@ -51,20 +43,15 @@ class Contents extends Component
     public function store(){
         $this->validate([
            'text'=>'required',
-           'project_id'=>'required',
+           'position'=>'required',
+           'project_id'=>'required'
         ]);
 
-        Content::create([
-            'txt'=>$this->text,
-            'position'=>$this->position,
-            'project_id'=>$this->project_id
-        ]);
-
-        /*Contents::updateOrCreate(['id'=>$this->content_id],[
+        Content::updateOrCreate(['id'=>$this->content_id],[
             'text'=>$this->text,
             'position'=>$this->position,
             'project_id'=>$this->project_id
-        ]);*/
+        ]);
 
         session()->flash('message',
         $this->content_id ? 'Contenido actualizado exitosamente.': 'contenido generado con éxito.');
@@ -77,30 +64,10 @@ class Contents extends Component
         $content = Content::findOrFail($id);
         $this->content_id = $id;
         $this->text = $content->text;
+        $this->position = $content->position;
         $this->project_id = $content->project_id;
         $this->update=true;
         $this->openModal();
-    }
-
-    public function update(){
-
-        $this->validate([
-            'text'=>'required',
-            'project_id'=>'required'
-        ]);
-
-        if ($this->content_id){
-            $content = Content::find($this->project_id);
-            $content->update([
-                'text'=>$this->text,
-                'project_id'=>$this->project_id
-            ]);
-        }
-
-        session()->flash('message',
-            $this->content_id ? 'Contenido actualizado exitosamente.': 'Contenido generado con éxito.');
-        $this->closeModal();
-        $this->resetInputFields();
     }
 
     public function delete($id){

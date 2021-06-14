@@ -43,7 +43,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('projectreferences',\App\Http\Livewire\ProjectReferenceComponet::class)->name('projectreferences');
 
-    Route::get('contents', \App\Http\Livewire\Contents::class)->name('contents');
+    Route::get('content', \App\Http\Livewire\ContentComponent::class)->name('contents');
 
     Route::get('project_awards', \App\Http\Livewire\ProjectAwards::class)->name('project_awards');
 
