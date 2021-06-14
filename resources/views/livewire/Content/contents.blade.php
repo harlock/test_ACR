@@ -40,8 +40,8 @@
                         <td class="border px-4 py-2">{{ $contents->position }}</td>
                         <td class="border px-4 py-2 text-center">{{ $contents->project_title }}</td>
                         <td class="border px-4 py-2">
-                            <button wire:click="edit({{ $content->id}})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Editar</button>
-                            <button wire:click="delete({{ $content->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
+                            <button wire:click="edit({{ $contents->id}})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Editar</button>
+                            <button wire:click="delete({{ $contents->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
                         </td>
                     </tr>
                 @endforeach
