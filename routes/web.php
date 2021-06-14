@@ -33,9 +33,11 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('socialNetworks', \App\Http\Livewire\SocialNetworks::class)->name('socialNetworks');
 
-    Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypes::class)->name('SocialNetworkType');
+    Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypeComponent::class)->name('socialnetworktype');
 
     Route::get('image', \App\Http\Livewire\Images::class)->name('image');
+
+    Route::get('imagesauthors', \App\Http\Livewire\ImagesAuthors::class)->name('imagesauthors');
 
     Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
 

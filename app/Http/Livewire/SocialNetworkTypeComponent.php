@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\SocialNetworkType;
 
-class SocialNetworkTypes extends Component
+class SocialNetworkTypeComponent extends Component
 {
     public $socialnetworktype, $description, $url, $socialnetworktype_id;
     public $isOpen = 0;

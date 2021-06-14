@@ -23,7 +23,7 @@ class CreateImageAutorsTable extends Migration
             $table->foreign("content_author_id")
                 ->references("id")
                 ->on("content_authors");
-                       
+
             $table->timestamps();
             $table->softDeletes();
         });

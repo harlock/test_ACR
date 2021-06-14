@@ -32,9 +32,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($socialnetworktype as $SocialNetworkType)
+                    @foreach($socialnetworktype as $index=> $SocialNetworkType)
                     <tr>
-                        <td class="border px-4 py-2">{{ $SocialNetworkType->id }}</td>
+                        <td class="border px-4 py-2">{{ $index+1 }}</td>
                         <td class="border px-4 py-2">{{ $SocialNetworkType->description }}</td>
                         <td class="border px-4 py-2">{{ $SocialNetworkType->url }}</td>
                         <td class="border px-4 py-2">

@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('SocialNetworkType') }}" :active="request()->routeIs('SocialNetworkType')">
+                    <x-jet-nav-link href="{{ route('socialnetworktype') }}" :active="request()->routeIs('socialnetworktype')">
                         {{ __('Tipos De Redes sociales') }}
                     </x-jet-nav-link>
                 </div>
@@ -56,6 +56,12 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('image') }}" :active="request()->routeIs('image')">
                         {{ __('Imagenes') }}
+                    </x-jet-nav-link>
+                </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('imagesauthors') }}" :active="request()->routeIs('imagesauthors')">
+                        {{ __('Autores de las imagenes') }}
                     </x-jet-nav-link>
                 </div>
 
