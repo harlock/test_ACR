@@ -9,10 +9,9 @@ use Livewire\Component;
 use Livewire\Livewire;
 use Illuminate\Support\Str;
 
-class ProjectTypes extends Component{
+class ProjectTypeComponent extends Component{
     public $description, $slug, $home, $projecttypes,$projecttype_id;
     public $isOpen=0;
-    public $update;
     public function render()
     {
        $this->projecttypes=ProjectType::all();
@@ -20,7 +19,6 @@ class ProjectTypes extends Component{
     }
 
     public function create(){
-        $this->update=false;
         $this->resetInputFields();
         $this->openModal();
     }
@@ -45,7 +43,8 @@ class ProjectTypes extends Component{
             'home'=>'required|int'
         ]);
 
-        ProjectType::create([
+        ProjectType::updateOrCreate(['id'=> $this->projecttype_id],
+            [
             'description'=>$this->description,
             'slug'=>Str::slug($this->description),
             'home'=>$this->home
@@ -60,28 +59,9 @@ class ProjectTypes extends Component{
         $this->projecttype_id=$id;
         $this->description=$projecttypes->description;
         $this->home=$projecttypes->home;
-        $this->update=true;
         $this->openModal();
     }
-    public function update(){
-        $this->validate([
-            'description'=>'required',
-            'home'=>'required'
-        ]);
 
-        if ($this->projecttype_id){
-            $projecttypes=ProjectType::find($this->projecttype_id);
-            $projecttypes->update([
-                'description'=>$this->description,
-                'slug'=>Str::slug($this->description),
-                'home'=>$this->home
-            ]);
-        }
-        session()->flash('message',
-            $this->projecttype_id? 'Tipo de proyecto actualizado.' : 'Proyecto generado con exito.');
-        $this->closeModal();
-        $this->resetInputFields();
-    }
     public function delete($id){
         ProjectType::find($id)->delete();
         session()->flash('message', 'Tipo de proyecto eliminado con exito.');

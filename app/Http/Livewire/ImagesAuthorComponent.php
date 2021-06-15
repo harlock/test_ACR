@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\ImageAuthor;
 
-class ImagesAuthors extends Component
+class ImagesAuthorComponent extends Component
 {
     public $image, $contentauthor, $image_id, $contentauthor_id, $imagesauthors_id, $imagesauthor;
     public $isOpen = 0;

@@ -18,7 +18,7 @@
                     </div>
                 </div>
             @endif
-            @if($isOpen && $update == false)
+            @if($isOpen)
                 @include('livewire.ProjectTypes.create')
             @endif
             <button wire:click="create()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-3">Crear nuevo tipo de proyecto</button>
@@ -45,9 +45,6 @@
                         </td>
                     </tr>
                 @endforeach
-                @if($isOpen && $update == true)
-                    @include('livewire.ProjectTypes.update')
-                @endif
                 </tbody>
             </table>
         </div>

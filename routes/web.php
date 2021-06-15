@@ -37,13 +37,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('image', \App\Http\Livewire\Images::class)->name('image');
 
-    Route::get('imagesauthors', \App\Http\Livewire\ImagesAuthors::class)->name('imagesauthors');
+    Route::get('imagesauthors', \App\Http\Livewire\ImagesAuthorComponent::class)->name('imagesauthors');
 
     Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
 
     Route::get('award', \App\Http\Livewire\Awards::class)->name('awards');
 
-    Route::get('projectreferences',\App\Http\Livewire\ProjectReferenceComponet::class)->name('projectreferences');
+    Route::get('projectreferences',\App\Http\Livewire\ProjectReferenceComponent::class)->name('projectreferences');
 
     Route::get('content', \App\Http\Livewire\ContentComponent::class)->name('content');
 
@@ -51,8 +51,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('authors', \App\Http\Livewire\Authors::class)->name('authors');
 
-    Route::get('projecttypes', \App\Http\Livewire\ProjectTypes::class)->name('projecttypes');
-  
+    Route::get('projecttypes', \App\Http\Livewire\ProjectTypeComponent::class)->name('projecttypes');
+
 });
 
 
