@@ -7,7 +7,7 @@ use Livewire\Component;
 use App\Models\Project;
 use App\Models\ProjectReference;
 
-class ProjectReferenceComponet extends Component{
+class ProjectReferenceComponent extends Component{
 
     public $description, $project_id, $projectreferences, $projects,$projectreference_id;
     public $isOpen = 0;
