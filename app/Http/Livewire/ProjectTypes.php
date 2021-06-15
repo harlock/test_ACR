@@ -42,7 +42,7 @@ class ProjectTypes extends Component{
     public function store(){
         $this->validate([
             'description'=>'required',
-            'home'=>'required'
+            'home'=>'required|int'
         ]);
 
         ProjectType::create([

@@ -14,7 +14,8 @@ class ProjectReferenceComponet extends Component{
     public $selectOpen = 0;
 
     public function render(){
-        $this->projectreferences=DB::
+
+       /* $this->projectreferences=DB::
         select("select
             project_references.id,
             project_references.description,
@@ -23,6 +24,13 @@ class ProjectReferenceComponet extends Component{
         from
             project_references inner join projects on project_references.project_id=projects.id
         ");
+       */
+        $this->projectreferences=ProjectReference::join("projects","projects.id","=","project_references.project_id")
+            ->select("project_references.*", "projects.title")->get();
+
+
+      //  dd($this->projectreferences);
+
         $this->projects = Project::all();
         return view('livewire.ProjectReferences.projectReferences');
     }
@@ -47,10 +55,12 @@ class ProjectReferenceComponet extends Component{
     }
     public function store(){
 
-        $this->validate([
+
+         $this->validate([
             'description' => 'required',
             'project_id' => 'required',
         ]);
+
         //DB::select("insert into project_references (description,project_id) values (?,?)",array($this->description,$this->project_id));
 
         ProjectReference::updateOrCreate(['id' => $this->projectreference_id], [

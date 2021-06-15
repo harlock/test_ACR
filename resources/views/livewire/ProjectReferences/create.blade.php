@@ -18,13 +18,13 @@
                         @if($selectOpen)
                             <div class="mb-4">
                                 <label for="project_id" class="block text-gray-700 text-sm font-bold mb-2">Selecciona proyecto:</label>
-                                <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_id" wire:model="project_id" required>
-                                    <option>Seleccione el proyecto</option>
+                                <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_id" wire:model="project_id" >
+                                    <option value="" disabled>Seleccione el proyecto</option>
                                     @foreach($projects as $project)
                                         <option value="{{$project->id}}">{{$project->title}}</option>
                                     @endforeach
-                                    @error('project_id') <span class="text-red-500"{{$message}}></span>@enderror
                                 </select>
+                                @error('project_id')<span class="text-red-500"> {{$message}} </span>@enderror
                             </div>
                         @endif
                     </div>
