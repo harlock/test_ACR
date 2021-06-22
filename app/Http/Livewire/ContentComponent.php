@@ -15,8 +15,19 @@ class ContentComponent extends Component
 
     public function render()
     {
+        /*$this->contents=DB::select("select 
+            contents.id, 
+            contents.text, 
+            contents.position, 
+            projects.id as project_title 
+        from 
+            projects inner join contents on contents.project_id= projects.id
+            ");
+        */
+        $this->content=Content::join("projects","projects.id","=","contents.project_id")
+            ->select("contents.*", "projects.title")->get();
+            
         $this->project = Content::all();
-        $this->content = Content::all();
         return view('livewire.Content.contents');
     }
 

@@ -10,8 +10,11 @@ use App\Models\Project;
 
 class ImagesComponent extends Component
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 42f516e41488a4ab2480a96f6419e79c140e407d
 {
 
     public $image = "hola", $description, $position = 0,$project_id, $project, $image_id;
