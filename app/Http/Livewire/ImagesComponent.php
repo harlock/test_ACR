@@ -7,7 +7,11 @@ use Livewire\Component;
 use App\Models\Image;
 use App\Models\Project;
 
+<<<<<<< HEAD:app/Http/Livewire/ImagesComponent.php
 class ImagesComponent extends Component
+=======
+class ImageComponent extends Component
+>>>>>>> d053211afbd09337fcee02f7ebeb4c2a5f2fc164:app/Http/Livewire/ImageComponent.php
 {
 
     public $image = "hola", $description, $position = 0,$project_id, $project, $image_id;
