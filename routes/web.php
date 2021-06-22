@@ -39,17 +39,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypeComponent::class)->name('socialnetworktype');
 
-<<<<<<< HEAD
     Route::get('image', \App\Http\Livewire\ImagesComponent::class)->name('image');
-=======
-    Route::get('image', \App\Http\Livewire\ImageComponent::class)->name('image');
->>>>>>> d053211afbd09337fcee02f7ebeb4c2a5f2fc164
+
 
     Route::get('imagesauthors', \App\Http\Livewire\ImagesAuthorComponent::class)->name('imagesauthors');
 
-    Route::get('allies', \App\Http\Livewire\Allies::class)->name('allies');
+    Route::get('allies', \App\Http\Livewire\AllieComponent::class)->name('allies');
 
-    Route::get('award', \App\Http\Livewire\Awards::class)->name('awards');
+    Route::get('award', \App\Http\Livewire\AwardComponent::class)->name('awards');
 
     Route::get('projectreferences',\App\Http\Livewire\ProjectReferenceComponent::class)->name('projectreferences');
 

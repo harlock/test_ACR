@@ -8,7 +8,7 @@ use Livewire\WithFileUploads;
 use App\Models\Ally;
 use Illuminate\Http\Request;
 
-class Allies extends Component
+class AllieComponent extends Component
 {
 
     use WithFileUploads;

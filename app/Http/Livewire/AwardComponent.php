@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Livewire\Component;
 use App\Models\Award;
 
-class Awards extends Component
+class AwardComponent extends Component
 {
     public $awards, $name, $description, $description_US, $award_id;
     public $image='';
