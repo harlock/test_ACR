@@ -30,9 +30,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($socialNetwork as $socialNetworks)
+                    @foreach($socialNetwork as $index=> $socialNetworks)
                     <tr>
-                        <td class="border px-4 py-2">{{ $socialNetworks->id }}</td>
+                        <td class="border px-4 py-2">{{ $index+1 }}</td>
                         <td class="border px-4 py-2">{{ $socialNetworks->address }}</td>
                         <td class="border px-4 py-2">{{ $socialNetworks->name }}</td>
                         <td class="border px-4 py-2">{{ $socialNetworks->description }}</td>

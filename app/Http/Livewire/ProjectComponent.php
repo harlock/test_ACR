@@ -8,14 +8,14 @@ use App\Models\Project;
 use App\Models\ProjectType;
 use Illuminate\Support\Str;
 
-class Projects extends Component
+class ProjectComponent extends Component
 {
     public $project, $title, $description, $slug, $project_id, $project_type_id, $categorie;
     public $isOpen = 0, $view_counter = "0" , $enabled = "0";
     public $update;
     public function render()
     {
-        $this->project = DB::select(
+       /* $this->project = DB::select(
             "select
 		    projects.id,
 		    projects.title,
@@ -24,8 +24,18 @@ class Projects extends Component
             project_types.description as type_project_description
 	    from
 		    project_types inner join projects on projects.project_type_id = project_types.id");
-        $this->categorie = ProjectType::all();
+        
+        $this->project=Project::join("project_types","project_type_id","=","projects.project_type_id")
+           ->select("projects.*", "project_types.slug")->get();
+        */
+        $this->project=Project::join("project_types","project_types.id","=","projects.project_type_id")
+           ->select("projects.*","project_types.description")->get(); 
+
+       
+           $this->project = Project::all();
+           $this->project_types = ProjectType::all();
         return view('livewire.Projects.projects');
+        
     }
 
     public function create(){

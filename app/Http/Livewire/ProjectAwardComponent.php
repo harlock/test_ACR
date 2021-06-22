@@ -10,7 +10,7 @@ use App\Models\ProjectAward;
 
 use mysql_xdevapi\Exception;
 
-class ProjectAwards extends Component
+class ProjectAwardComponent extends Component
 {
     public $pojectAward,$awards,$porjects,$date,$project_id,$award_id,$project_awards_id;
     public $isOpen = 0;
@@ -28,9 +28,13 @@ class ProjectAwards extends Component
         where
             pa.project_id = p.id
                 and pa.award_id = aw.id ");
+
+      /*         $this->project=Project::join("awards","award_id","=","project_awards.awards_id")
+                ->select("projects.*", "project_types.description")->get();
         $this->awards = Award::all();
         $this->porjects = Project::all();
         return view('livewire.ProjectAwards.projectAwards');
+*/
     }
 
     public function create(){

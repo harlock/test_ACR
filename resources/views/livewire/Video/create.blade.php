@@ -10,16 +10,8 @@
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="">
                         <div class="mb-4">
-                            <label for="exampleFormControlInput1" class="block text-gray-700 text-sm font-bold mb-2">Video:</label>
-                            <div wire:loading wire:target="video" class="bg-blue-100 border border-blue-300 text-blue-700 px-4 py-3 rounded relative" role="alert">
-                              <strong class="font-bold">Espere un momento!</strong>
-                              <span class="block sm:inline">El video se esta cargando.</span>
-                            </div>
-                            @if($video)
-                                <img class="mb-4" src="{{$video->temporaryUrl()}}">
-                            @endif
-                            <input type="file" wire:model="video">
-                            <x-jet-input-error for="video"/>
+                            <label for="exampleFormControlInput2" class="block text-gray-700 text-sm font-bold mb-2">Descripción:</label>
+                            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exampleFormControlInput2" wire:model="video" placeholder="Descripción del video"></textarea>
                             @error('video') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div class="mb-4">
@@ -36,11 +28,11 @@
                             <label for="project_id" class="block text-gray-700 text-sm font-bold mb-2">Proyecto:</label>
                             <select class="form-control border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project_id" wire:model="project_id" required>
                                 <option>Seleccione un proyecto</option>
-                                @foreach($project as $projects)
-                                    <option value="{{$projects->id}}">{{$projects->title}}</option>
-                                @endforeach
-                                @error('project_id') <span class="text-red-500"{{$message}}></span>@enderror
+                                @foreach($projects as $project)
+                                    <option value="{{$project->id}}">{{$project->title}}</option>
+                                @endforeach    
                             </select>
+                            @error('project_id') <span class="text-red-500">{{$message}}</span>@enderror
                         </div>
                        
                     </div>

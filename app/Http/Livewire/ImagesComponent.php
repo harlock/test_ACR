@@ -7,8 +7,11 @@ use Livewire\Component;
 use App\Models\Image;
 use App\Models\Project;
 
-class Images extends Component
+
+class ImagesComponent extends Component
+
 {
+
     public $image = "hola", $description, $position = 0,$project_id, $project, $image_id;
     public $isOpen = 0;
 

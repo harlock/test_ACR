@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use App\Models\Author;
-class Authors extends Component
+class AuthorsComponent extends Component
 {
     public $user, $project, $user_id, $project_id, $author_id, $author;
     public $isOpen = 0;
@@ -17,6 +17,7 @@ class Authors extends Component
         $this->user=User::all();
         $this->project=Project::all();
         return view('livewire.Authors.authors');
+
     }
 
     public  function create(){

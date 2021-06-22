@@ -10,7 +10,7 @@ use App\Models\SocialNetworkType;
 
 use mysql_xdevapi\Exception;
 
-class SocialNetworks extends Component
+class SocialNetworkComponent extends Component
 {
     public $socialNetwork, $allies, $socialNetworkTypes, $address, $ally_id,$ally,$social_network_type_id,$socialNetworkType,$social_network_id;
     public $isOpen = 0;
@@ -50,7 +50,7 @@ class SocialNetworks extends Component
         $this->ally_id="";
         $this->social_network_type_id="";
         $this->social_network_id="";
-        
+
     }
 
     public function store(){
@@ -58,7 +58,7 @@ class SocialNetworks extends Component
            'address'=>'required',
            'ally_id'=>'required',
            'social_network_type_id'=>'required'
-           
+
         ]);
 
         SocialNetwork::updateOrCreate(['id'=>$this->social_network_id],[
@@ -67,7 +67,7 @@ class SocialNetworks extends Component
             'social_network_type_id'=>$this->social_network_type_id
         ]);
 
-        
+
 
         session()->flash('message',
         $this->id ? 'Red social actualizada exitosamente.': 'Red social generada con éxito.');

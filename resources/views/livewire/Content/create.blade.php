@@ -21,7 +21,7 @@
                                 @foreach($project as $projects)
                                     <option value="{{$projects->id}}">{{$projects->title}}</option>
                                 @endforeach
-                                @error('project_id') <span class="text-red-500"{{$message}}></span>@enderror
+                                @error('project_id') <span class="text-red-500">{{$message}}</span>@enderror
                             </select>
                         </div>
 
