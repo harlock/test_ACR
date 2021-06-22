@@ -24,7 +24,7 @@
         </x-jet-nav-link>
     </li>
     <li class="my-2 md:my-0">
-        <x-jet-nav-link href="{{ route('socialNetworks') }}" :active="request()->routeIs('socialNetworks')">
+        <x-jet-nav-link href="{{ route('socialNetwork') }}" :active="request()->routeIs('socialNetwork')">
             {{ __('Redes Sociales') }}
         </x-jet-nav-link>
     </li>

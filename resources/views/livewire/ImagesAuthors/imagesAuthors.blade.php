@@ -27,9 +27,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($imagesauthor as $imagesauthors)
+                @foreach($imagesauthor as $index=> $imagesauthors)
                     <tr>
-                        <td class="border px-4 py-2">{{ $imagesauthors->id }}</td>
+                        <td class="border px-4 py-2">{{ $index+1 }}</td>
                         <td class="border px-4 py-2">{{ $imagesauthors->image }}</td>
                         <td class="border px-4 py-2 text-center">{{ $imagesauthors->name }}</td>
                         <td class="border px-4 py-2">
