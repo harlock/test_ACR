@@ -38,12 +38,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('socialNetworks', \App\Http\Livewire\SocialNetworkComponent::class)->name('socialNetwork');
 
     Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypeComponent::class)->name('socialnetworktype');
-
-<<<<<<< HEAD
     Route::get('image', \App\Http\Livewire\ImagesComponent::class)->name('image');
-=======
-    Route::get('image', \App\Http\Livewire\ImageComponent::class)->name('image');
->>>>>>> d053211afbd09337fcee02f7ebeb4c2a5f2fc164
+
 
     Route::get('imagesauthors', \App\Http\Livewire\ImagesAuthorComponent::class)->name('imagesauthors');
 
