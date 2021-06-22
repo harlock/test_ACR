@@ -39,7 +39,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypeComponent::class)->name('socialnetworktype');
 
-    Route::get('image', \App\Http\Livewire\Images::class)->name('image');
+    Route::get('image', \App\Http\Livewire\ImagesComponent::class)->name('image');
 
     Route::get('imagesauthors', \App\Http\Livewire\ImagesAuthorComponent::class)->name('imagesauthors');
 
@@ -53,7 +53,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('project_awards', \App\Http\Livewire\ProjectAwards::class)->name('project_awards');
 
-    Route::get('authors', \App\Http\Livewire\Authors::class)->name('authors');
+    Route::get('authors', \App\Http\Livewire\AuthorsComponent::class)->name('authors');
 
     Route::get('projecttypes', \App\Http\Livewire\ProjectTypeComponent::class)->name('projecttypes');
 
