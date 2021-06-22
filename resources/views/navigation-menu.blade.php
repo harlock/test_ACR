@@ -1,8 +1,14 @@
 <ul class="list-reset ">
+    <li class="my-2 md:my-0">
+        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400">
+            <i class="fas fa-home fa-fw mr-3"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">Home</span>
+        </a>
+    </li>
+    <li class="my-2 md:my-0">
     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
         {{ __('Dashboard') }}
     </x-jet-nav-link>
-
+    </li>
     <li class="my-2 md:my-0">
         <x-jet-nav-link href="{{ route('projecttypes') }}" :active="request()->routeIs('projecttypes')">
             {{ __('Tipo de proyectos') }}
@@ -64,13 +70,11 @@
         </x-jet-nav-link>
     </li>
     <li class="my-2 md:my-0">
-        <x-jet-nav-link href="{{ route('project_awards') }}" :active="request()->routeIs('project_awards')">
-            {{ __('Premios de proyectos') }}
+        <x-jet-nav-link href="{{ route('project_awards') }}"  class="block py-1 md:py-3 pl-1 align-middle text-gray-600 no-underline hover:text-indigo-400" :active="request()->routeIs('project_awards')">
+            <i class="fas fa-chart-area fa-fw mr-3 text-indigo-400"></i><span class="w-full inline-block pb-1 md:pb-0 text-sm">{{ __('Premios de proyectos') }}</span>
         </x-jet-nav-link>
     </li>
-    <li class="my-2 md:my-0">
 
-    </li>
 </ul>
 
 
