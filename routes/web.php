@@ -35,11 +35,15 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('Video', \App\Http\Livewire\videoComponent::class)->name('Video');
 
-    Route::get('socialNetworks', \App\Http\Livewire\SocialNetworks::class)->name('socialNetworks');
+    Route::get('socialNetworks', \App\Http\Livewire\SocialNetworkComponent::class)->name('socialNetwork');
 
     Route::get('SocialNetworkTypes', \App\Http\Livewire\SocialNetworkTypeComponent::class)->name('socialnetworktype');
 
-    Route::get('image', \App\Http\Livewire\Images::class)->name('image');
+<<<<<<< HEAD
+    Route::get('image', \App\Http\Livewire\ImagesComponent::class)->name('image');
+=======
+    Route::get('image', \App\Http\Livewire\ImageComponent::class)->name('image');
+>>>>>>> d053211afbd09337fcee02f7ebeb4c2a5f2fc164
 
     Route::get('imagesauthors', \App\Http\Livewire\ImagesAuthorComponent::class)->name('imagesauthors');
 
@@ -53,7 +57,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('project_awards', \App\Http\Livewire\ProjectAwardComponent::class)->name('project_awards');
 
-    Route::get('authors', \App\Http\Livewire\Authors::class)->name('authors');
+    Route::get('authors', \App\Http\Livewire\AuthorsComponent::class)->name('authors');
 
     Route::get('projecttypes', \App\Http\Livewire\ProjectTypeComponent::class)->name('projecttypes');
 
