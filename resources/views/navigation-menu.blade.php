@@ -9,7 +9,7 @@
         </x-jet-nav-link>
     </li>
     <li class="my-2 md:my-0">
-        <x-jet-nav-link href="{{ route('projects') }}" :active="request()->routeIs('projects')">
+        <x-jet-nav-link href="{{ route('projects') }}" :active="request()->routeIs('project')">
             {{ __('Proyectos') }}
         </x-jet-nav-link>
     </li>

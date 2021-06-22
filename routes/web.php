@@ -31,7 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
-    Route::get('projects', \App\Http\Livewire\Projects::class)->name('projects');
+    Route::get('projects', \App\Http\Livewire\ProjectComponent::class)->name('projects');
 
     Route::get('Video', \App\Http\Livewire\videoComponent::class)->name('Video');
 
@@ -51,7 +51,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('content', \App\Http\Livewire\ContentComponent::class)->name('content');
 
-    Route::get('project_awards', \App\Http\Livewire\ProjectAwards::class)->name('project_awards');
+    Route::get('project_awards', \App\Http\Livewire\ProjectAwardComponent::class)->name('project_awards');
 
     Route::get('authors', \App\Http\Livewire\Authors::class)->name('authors');
 
