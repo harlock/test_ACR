@@ -4,19 +4,35 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Video;
+use App\Models\Project;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\DB;
 
 class VideoComponent extends Component
 {
-    use WithFileUploads;
+    //use WithFileUploads;
 
-    public $videos, $video, $description, $video_id, $project_id, $project;
+    public $videos, $video, $description, $video_id, $project_id, $projects;
     public $isOpen = 0, $position = 0;
 
     public function render()
     {
-        $this->project= Video::all();
-        $this->videos = Video::all();
+        /*    
+            $this->videos=DB::select("select 
+                videos.id, 
+                videos.video, 
+                videos.description, 
+                videos.position, 
+                projects.title 
+            from 
+                projects inner join videos on videos.project_id=projects.id
+                ");" 
+        */
+
+        $this->videos=Video::join("projects","projects.id","=","videos.project_id")
+            ->select("videos.*", "projects.title")->get();
+
+        $this->projects = Project::all();
         return view('livewire.Video.video');
     }
 
